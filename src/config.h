@@ -107,7 +107,7 @@ static Config load_config()
 		return config;
 	}
 
-	yyjson_doc* doc = yyjson_read(buffer, buffer_size, 0);
+	yyjson_doc* doc = yyjson_read(buffer, buffer_size, YYJSON_READ_ALLOW_COMMENTS);
 	free(buffer);
 	if (!doc) {
 		fprintf(stderr, "Failed to parse config JSON. Using defaults.\n");
